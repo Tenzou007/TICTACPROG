@@ -1,10 +1,15 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JTable;
+import java.awt.BorderLayout;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JScrollPane;
 
 public class Test {
 
 	private JFrame frame;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -36,6 +41,22 @@ public class Test {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(26, 11, 384, 222);
+		frame.getContentPane().add(scrollPane);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null},
+			},
+			new String[] {
+				"WINNER", "DATE"
+			}
+		));
 	}
 
 }
